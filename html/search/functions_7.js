@@ -1,0 +1,5 @@
+var searchData=
+[
+  ['remove_0',['remove',['../classlibs_1_1acl_1_1acl.html#a311d3f205dfe911b1fb4c71f9ba28d70',1,'libs::acl::acl::remove(subjects::subject&lt; S &gt; &amp;sub)'],['../classlibs_1_1acl_1_1acl.html#a78d56a868719a63fb3a4bfc124d07cc3',1,'libs::acl::acl::remove(subjects::subject&lt; S &gt; &amp;sub, const size_t uuid)']]],
+  ['resource_1',['resource',['../classlibs_1_1resources_1_1resource.html#ac26d7feefe199dc1c7bdf4c393a81b83',1,'libs::resources::resource::resource()'],['../classlibs_1_1resources_1_1resource.html#a809b057b4ceba812eea476430a740769',1,'libs::resources::resource::resource(const resource&lt; T &gt; &amp;)=delete'],['../classlibs_1_1resources_1_1resource.html#a1c4d8270852682b53197c75bc0ac5372',1,'libs::resources::resource::resource(resource&lt; T &gt; &amp;&amp;res)'],['../classlibs_1_1resources_1_1resource.html#ad25124a4731da64b251db74253f77055',1,'libs::resources::resource::resource(T &amp;res)'],['../classlibs_1_1resources_1_1resource.html#ae3100f73a29a21709eaba9a0fc01d7b2',1,'libs::resources::resource::resource(T &amp;&amp;res)']]]
+];

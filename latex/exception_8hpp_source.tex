@@ -1,0 +1,31 @@
+\hypertarget{exception_8hpp_source}{}\doxysection{exception.\+hpp}
+\label{exception_8hpp_source}\index{src/exception.hpp@{src/exception.hpp}}
+\mbox{\hyperlink{exception_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef \_\_EXCEPTION\_HPP\_\_}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define \_\_EXCEPTION\_HPP\_\_}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <exception>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}exception"{}}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacelibs}{libs}} \{}
+\DoxyCodeLine{11     \textcolor{keyword}{namespace }exception \{}
+\DoxyCodeLine{15 \textcolor{keyword}{class }\mbox{\hyperlink{classlibs_1_1exception_1_1custom__exception}{custom\_exception}}: \textcolor{keyword}{public} std::exception \{}
+\DoxyCodeLine{16     \textcolor{keyword}{private}:}
+\DoxyCodeLine{17         \textcolor{keyword}{const} std::unique\_ptr<std::string> m\_msg;}
+\DoxyCodeLine{18     \textcolor{keyword}{public}:}
+\DoxyCodeLine{23         \mbox{\hyperlink{classlibs_1_1exception_1_1custom__exception_af9edce766f544883148b26e6a7058453}{custom\_exception}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* msg): m\_msg(std::move(std::make\_unique<std::string>(msg))) \{}
+\DoxyCodeLine{24         \};}
+\DoxyCodeLine{30         \textcolor{keyword}{virtual} \textcolor{keyword}{const} \textcolor{keywordtype}{char}* \mbox{\hyperlink{classlibs_1_1exception_1_1custom__exception_ab16efbac1b4115edff741e9b9a74886d}{what}}() \textcolor{keyword}{const} throw() \{}
+\DoxyCodeLine{31             \textcolor{keywordflow}{return} m\_msg.get()-\/>c\_str();}
+\DoxyCodeLine{32         \}}
+\DoxyCodeLine{33 \};}
+\DoxyCodeLine{34 \}}
+\DoxyCodeLine{35 \}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//\_\_EXCEPTION\_HPP\_\_}}
+
+\end{DoxyCode}

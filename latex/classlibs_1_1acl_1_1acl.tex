@@ -1,0 +1,258 @@
+\hypertarget{classlibs_1_1acl_1_1acl}{}\doxysection{libs\+::acl\+::acl\texorpdfstring{$<$}{<} S, R \texorpdfstring{$>$}{>} Class Template Reference}
+\label{classlibs_1_1acl_1_1acl}\index{libs::acl::acl$<$ S, R $>$@{libs::acl::acl$<$ S, R $>$}}
+
+
+Defines the main class which is responsible for managing subjects and resources.  
+
+
+
+
+{\ttfamily \#include $<$acl.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classlibs_1_1acl_1_1acl_ab4bda13c158b06b8e95fb01dd58a7b4f}{acl}} ()=default
+\item 
+size\+\_\+t \mbox{\hyperlink{classlibs_1_1acl_1_1acl_a603a73dea88918b2167d5fe374687824}{add}} (\mbox{\hyperlink{classlibs_1_1subjects_1_1subject}{subjects\+::subject}}$<$ S $>$ \&sub, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classlibs_1_1resources_1_1resource}{resources\+::resource}}$<$ R $>$ $>$ res, const std\+::string \&access=std\+::string(\char`\"{}forbiden\char`\"{}))
+\item 
+void \mbox{\hyperlink{classlibs_1_1acl_1_1acl_afe069f936744de4bf7f0b24e97afa564}{allow\+\_\+access}} (\mbox{\hyperlink{classlibs_1_1subjects_1_1subject}{subjects\+::subject}}$<$ S $>$ \&sub, const size\+\_\+t uuid)
+\item 
+void \mbox{\hyperlink{classlibs_1_1acl_1_1acl_a0457c801118c56053bd3f6230eaaa042}{forbid\+\_\+access}} (\mbox{\hyperlink{classlibs_1_1subjects_1_1subject}{subjects\+::subject}}$<$ S $>$ \&sub, const size\+\_\+t uuid)
+\item 
+bool \mbox{\hyperlink{classlibs_1_1acl_1_1acl_ad21667a276f12ecddc3dfbd0ebf49308}{is\+\_\+allowed}} (\mbox{\hyperlink{classlibs_1_1subjects_1_1subject}{subjects\+::subject}}$<$ S $>$ \&sub, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classlibs_1_1resources_1_1resource}{resources\+::resource}}$<$ R $>$ $>$ res)
+\item 
+void \mbox{\hyperlink{classlibs_1_1acl_1_1acl_a311d3f205dfe911b1fb4c71f9ba28d70}{remove}} (\mbox{\hyperlink{classlibs_1_1subjects_1_1subject}{subjects\+::subject}}$<$ S $>$ \&sub)
+\item 
+void \mbox{\hyperlink{classlibs_1_1acl_1_1acl_a78d56a868719a63fb3a4bfc124d07cc3}{remove}} (\mbox{\hyperlink{classlibs_1_1subjects_1_1subject}{subjects\+::subject}}$<$ S $>$ \&sub, const size\+\_\+t uuid)
+\item 
+bool \mbox{\hyperlink{classlibs_1_1acl_1_1acl_a41cdad769203cd4133f90e6087056ab1}{has\+\_\+subject}} (\mbox{\hyperlink{classlibs_1_1subjects_1_1subject}{subjects\+::subject}}$<$ S $>$ \&sub)
+\item 
+bool \mbox{\hyperlink{classlibs_1_1acl_1_1acl_abdcdee2f1ba7ec4441d7fb1cfc0c86c0}{has\+\_\+resource}} (\mbox{\hyperlink{classlibs_1_1subjects_1_1subject}{subjects\+::subject}}$<$ S $>$ \&sub, const size\+\_\+t uuid)
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classlibs_1_1resources_1_1resource}{resources\+::resource}}$<$ R $>$ $>$ \mbox{\hyperlink{classlibs_1_1acl_1_1acl_ab07d9833e26fd104608cd1898a8581a5}{try\+\_\+pop}} (\mbox{\hyperlink{classlibs_1_1subjects_1_1subject}{subjects\+::subject}}$<$ S $>$ \&sub, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classlibs_1_1resources_1_1resource}{resources\+::resource}}$<$ R $>$ $>$ res)
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classlibs_1_1resources_1_1resource}{resources\+::resource}}$<$ R $>$ $>$ \mbox{\hyperlink{classlibs_1_1acl_1_1acl_a35647a2cfc9476759e5e4c6318f50c1f}{try\+\_\+pop}} (\mbox{\hyperlink{classlibs_1_1subjects_1_1subject}{subjects\+::subject}}$<$ S $>$ \&sub, size\+\_\+t uuid)
+\item 
+const size\+\_\+t \mbox{\hyperlink{classlibs_1_1acl_1_1acl_a2a3aad70eec4874999e2e9e890c7848e}{size}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename S, typename R$>$\newline
+class libs\+::acl\+::acl$<$ S, R $>$}
+Defines the main class which is responsible for managing subjects and resources. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em S} & the type of data stored in subject \\
+\hline
+{\em R} & the type of data stored in resource \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classlibs_1_1acl_1_1acl_ab4bda13c158b06b8e95fb01dd58a7b4f}\label{classlibs_1_1acl_1_1acl_ab4bda13c158b06b8e95fb01dd58a7b4f}} 
+\index{libs::acl::acl$<$ S, R $>$@{libs::acl::acl$<$ S, R $>$}!acl@{acl}}
+\index{acl@{acl}!libs::acl::acl$<$ S, R $>$@{libs::acl::acl$<$ S, R $>$}}
+\doxysubsubsection{\texorpdfstring{acl()}{acl()}}
+{\footnotesize\ttfamily template$<$typename S , typename R $>$ \\
+\mbox{\hyperlink{classlibs_1_1acl_1_1acl}{libs\+::acl\+::acl}}$<$ S, R $>$\+::\mbox{\hyperlink{classlibs_1_1acl_1_1acl}{acl}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+The defaulted constructor 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classlibs_1_1acl_1_1acl_a603a73dea88918b2167d5fe374687824}\label{classlibs_1_1acl_1_1acl_a603a73dea88918b2167d5fe374687824}} 
+\index{libs::acl::acl$<$ S, R $>$@{libs::acl::acl$<$ S, R $>$}!add@{add}}
+\index{add@{add}!libs::acl::acl$<$ S, R $>$@{libs::acl::acl$<$ S, R $>$}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily template$<$typename S , typename R $>$ \\
+size\+\_\+t \mbox{\hyperlink{classlibs_1_1acl_1_1acl}{libs\+::acl\+::acl}}$<$ S, R $>$\+::add (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classlibs_1_1subjects_1_1subject}{subjects\+::subject}}$<$ S $>$ \&}]{sub,  }\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classlibs_1_1resources_1_1resource}{resources\+::resource}}$<$ R $>$ $>$}]{res,  }\item[{const std\+::string \&}]{access = {\ttfamily std\+:\+:string(\char`\"{}forbiden\char`\"{})} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Adds the resource to the specified subject 
+\begin{DoxyParams}{Parameters}
+{\em sub} & the subject \\
+\hline
+{\em res} & the resource \\
+\hline
+{\em access} & the access level for the resource, by default it is set to be {\ttfamily forbiden} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily size\+\_\+t} the uuid of the added resource 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classlibs_1_1acl_1_1acl_afe069f936744de4bf7f0b24e97afa564}\label{classlibs_1_1acl_1_1acl_afe069f936744de4bf7f0b24e97afa564}} 
+\index{libs::acl::acl$<$ S, R $>$@{libs::acl::acl$<$ S, R $>$}!allow\_access@{allow\_access}}
+\index{allow\_access@{allow\_access}!libs::acl::acl$<$ S, R $>$@{libs::acl::acl$<$ S, R $>$}}
+\doxysubsubsection{\texorpdfstring{allow\_access()}{allow\_access()}}
+{\footnotesize\ttfamily template$<$typename S , typename R $>$ \\
+void \mbox{\hyperlink{classlibs_1_1acl_1_1acl}{libs\+::acl\+::acl}}$<$ S, R $>$\+::allow\+\_\+access (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classlibs_1_1subjects_1_1subject}{subjects\+::subject}}$<$ S $>$ \&}]{sub,  }\item[{const size\+\_\+t}]{uuid }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Allows an access to the specified resource within the specified subject 
+\begin{DoxyParams}{Parameters}
+{\em sub} & the subject \\
+\hline
+{\em uuid} & the uuid og the specified resource \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily void} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classlibs_1_1acl_1_1acl_a0457c801118c56053bd3f6230eaaa042}\label{classlibs_1_1acl_1_1acl_a0457c801118c56053bd3f6230eaaa042}} 
+\index{libs::acl::acl$<$ S, R $>$@{libs::acl::acl$<$ S, R $>$}!forbid\_access@{forbid\_access}}
+\index{forbid\_access@{forbid\_access}!libs::acl::acl$<$ S, R $>$@{libs::acl::acl$<$ S, R $>$}}
+\doxysubsubsection{\texorpdfstring{forbid\_access()}{forbid\_access()}}
+{\footnotesize\ttfamily template$<$typename S , typename R $>$ \\
+void \mbox{\hyperlink{classlibs_1_1acl_1_1acl}{libs\+::acl\+::acl}}$<$ S, R $>$\+::forbid\+\_\+access (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classlibs_1_1subjects_1_1subject}{subjects\+::subject}}$<$ S $>$ \&}]{sub,  }\item[{const size\+\_\+t}]{uuid }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Forbids the access to the specified resource within the specified subject 
+\begin{DoxyParams}{Parameters}
+{\em sub} & the subject \\
+\hline
+{\em uuid} & the uuid og the specified resource \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily void} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classlibs_1_1acl_1_1acl_abdcdee2f1ba7ec4441d7fb1cfc0c86c0}\label{classlibs_1_1acl_1_1acl_abdcdee2f1ba7ec4441d7fb1cfc0c86c0}} 
+\index{libs::acl::acl$<$ S, R $>$@{libs::acl::acl$<$ S, R $>$}!has\_resource@{has\_resource}}
+\index{has\_resource@{has\_resource}!libs::acl::acl$<$ S, R $>$@{libs::acl::acl$<$ S, R $>$}}
+\doxysubsubsection{\texorpdfstring{has\_resource()}{has\_resource()}}
+{\footnotesize\ttfamily template$<$typename S , typename R $>$ \\
+bool \mbox{\hyperlink{classlibs_1_1acl_1_1acl}{libs\+::acl\+::acl}}$<$ S, R $>$\+::has\+\_\+resource (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classlibs_1_1subjects_1_1subject}{subjects\+::subject}}$<$ S $>$ \&}]{sub,  }\item[{const size\+\_\+t}]{uuid }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Checks whether the specified resource exists within the specified subject. 
+\begin{DoxyParams}{Parameters}
+{\em sub} & the subject \\
+\hline
+{\em uuid} & the uuid of the resource \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily bool} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classlibs_1_1acl_1_1acl_a41cdad769203cd4133f90e6087056ab1}\label{classlibs_1_1acl_1_1acl_a41cdad769203cd4133f90e6087056ab1}} 
+\index{libs::acl::acl$<$ S, R $>$@{libs::acl::acl$<$ S, R $>$}!has\_subject@{has\_subject}}
+\index{has\_subject@{has\_subject}!libs::acl::acl$<$ S, R $>$@{libs::acl::acl$<$ S, R $>$}}
+\doxysubsubsection{\texorpdfstring{has\_subject()}{has\_subject()}}
+{\footnotesize\ttfamily template$<$typename S , typename R $>$ \\
+bool \mbox{\hyperlink{classlibs_1_1acl_1_1acl}{libs\+::acl\+::acl}}$<$ S, R $>$\+::has\+\_\+subject (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classlibs_1_1subjects_1_1subject}{subjects\+::subject}}$<$ S $>$ \&}]{sub }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Checks whether the specified subject exists. 
+\begin{DoxyParams}{Parameters}
+{\em sub} & the subject \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily bool} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classlibs_1_1acl_1_1acl_ad21667a276f12ecddc3dfbd0ebf49308}\label{classlibs_1_1acl_1_1acl_ad21667a276f12ecddc3dfbd0ebf49308}} 
+\index{libs::acl::acl$<$ S, R $>$@{libs::acl::acl$<$ S, R $>$}!is\_allowed@{is\_allowed}}
+\index{is\_allowed@{is\_allowed}!libs::acl::acl$<$ S, R $>$@{libs::acl::acl$<$ S, R $>$}}
+\doxysubsubsection{\texorpdfstring{is\_allowed()}{is\_allowed()}}
+{\footnotesize\ttfamily template$<$typename S , typename R $>$ \\
+bool \mbox{\hyperlink{classlibs_1_1acl_1_1acl}{libs\+::acl\+::acl}}$<$ S, R $>$\+::is\+\_\+allowed (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classlibs_1_1subjects_1_1subject}{subjects\+::subject}}$<$ S $>$ \&}]{sub,  }\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classlibs_1_1resources_1_1resource}{resources\+::resource}}$<$ R $>$ $>$}]{res }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Checks whether or not the resource is allowed within the specified subject 
+\begin{DoxyParams}{Parameters}
+{\em sub} & the subject \\
+\hline
+{\em res} & the resource \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily bool} returns true if allowed, false vice versa. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classlibs_1_1acl_1_1acl_a311d3f205dfe911b1fb4c71f9ba28d70}\label{classlibs_1_1acl_1_1acl_a311d3f205dfe911b1fb4c71f9ba28d70}} 
+\index{libs::acl::acl$<$ S, R $>$@{libs::acl::acl$<$ S, R $>$}!remove@{remove}}
+\index{remove@{remove}!libs::acl::acl$<$ S, R $>$@{libs::acl::acl$<$ S, R $>$}}
+\doxysubsubsection{\texorpdfstring{remove()}{remove()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename S , typename R $>$ \\
+void \mbox{\hyperlink{classlibs_1_1acl_1_1acl}{libs\+::acl\+::acl}}$<$ S, R $>$\+::remove (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classlibs_1_1subjects_1_1subject}{subjects\+::subject}}$<$ S $>$ \&}]{sub }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Removes the subject 
+\begin{DoxyParams}{Parameters}
+{\em sub} & the subject \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily void} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classlibs_1_1acl_1_1acl_a78d56a868719a63fb3a4bfc124d07cc3}\label{classlibs_1_1acl_1_1acl_a78d56a868719a63fb3a4bfc124d07cc3}} 
+\index{libs::acl::acl$<$ S, R $>$@{libs::acl::acl$<$ S, R $>$}!remove@{remove}}
+\index{remove@{remove}!libs::acl::acl$<$ S, R $>$@{libs::acl::acl$<$ S, R $>$}}
+\doxysubsubsection{\texorpdfstring{remove()}{remove()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename S , typename R $>$ \\
+void \mbox{\hyperlink{classlibs_1_1acl_1_1acl}{libs\+::acl\+::acl}}$<$ S, R $>$\+::remove (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classlibs_1_1subjects_1_1subject}{subjects\+::subject}}$<$ S $>$ \&}]{sub,  }\item[{const size\+\_\+t}]{uuid }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Removes the specified resource from the subject 
+\begin{DoxyParams}{Parameters}
+{\em sub} & the subject \\
+\hline
+{\em uuid} & of the resource \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily void} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classlibs_1_1acl_1_1acl_a2a3aad70eec4874999e2e9e890c7848e}\label{classlibs_1_1acl_1_1acl_a2a3aad70eec4874999e2e9e890c7848e}} 
+\index{libs::acl::acl$<$ S, R $>$@{libs::acl::acl$<$ S, R $>$}!size@{size}}
+\index{size@{size}!libs::acl::acl$<$ S, R $>$@{libs::acl::acl$<$ S, R $>$}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily template$<$typename S , typename R $>$ \\
+const size\+\_\+t \mbox{\hyperlink{classlibs_1_1acl_1_1acl}{libs\+::acl\+::acl}}$<$ S, R $>$\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Gets the size of access list. \begin{DoxyReturn}{Returns}
+{\ttfamily const size\+\_\+t} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classlibs_1_1acl_1_1acl_a35647a2cfc9476759e5e4c6318f50c1f}\label{classlibs_1_1acl_1_1acl_a35647a2cfc9476759e5e4c6318f50c1f}} 
+\index{libs::acl::acl$<$ S, R $>$@{libs::acl::acl$<$ S, R $>$}!try\_pop@{try\_pop}}
+\index{try\_pop@{try\_pop}!libs::acl::acl$<$ S, R $>$@{libs::acl::acl$<$ S, R $>$}}
+\doxysubsubsection{\texorpdfstring{try\_pop()}{try\_pop()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename S , typename R $>$ \\
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classlibs_1_1resources_1_1resource}{resources\+::resource}}$<$ R $>$ $>$ \mbox{\hyperlink{classlibs_1_1acl_1_1acl}{libs\+::acl\+::acl}}$<$ S, R $>$\+::try\+\_\+pop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classlibs_1_1subjects_1_1subject}{subjects\+::subject}}$<$ S $>$ \&}]{sub,  }\item[{size\+\_\+t}]{uuid }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Tryies to pop the resource from the specified subject. 
+\begin{DoxyParams}{Parameters}
+{\em sub} & the subject \\
+\hline
+{\em uuid} & the uuid of the specified resource \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily std\+::unique\+\_\+ptr\texorpdfstring{$<$}{<}\mbox{\hyperlink{classlibs_1_1resources_1_1resource}{resources\+::resource}}\texorpdfstring{$<$}{<}R\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}} returns the specified resourse if it exists, otherwise nullptr 
+\end{DoxyReturn}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em R} & is the type of the raw resource \\
+\hline
+\end{DoxyTemplParams}
+\mbox{\Hypertarget{classlibs_1_1acl_1_1acl_ab07d9833e26fd104608cd1898a8581a5}\label{classlibs_1_1acl_1_1acl_ab07d9833e26fd104608cd1898a8581a5}} 
+\index{libs::acl::acl$<$ S, R $>$@{libs::acl::acl$<$ S, R $>$}!try\_pop@{try\_pop}}
+\index{try\_pop@{try\_pop}!libs::acl::acl$<$ S, R $>$@{libs::acl::acl$<$ S, R $>$}}
+\doxysubsubsection{\texorpdfstring{try\_pop()}{try\_pop()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename S , typename R $>$ \\
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classlibs_1_1resources_1_1resource}{resources\+::resource}}$<$ R $>$ $>$ \mbox{\hyperlink{classlibs_1_1acl_1_1acl}{libs\+::acl\+::acl}}$<$ S, R $>$\+::try\+\_\+pop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classlibs_1_1subjects_1_1subject}{subjects\+::subject}}$<$ S $>$ \&}]{sub,  }\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classlibs_1_1resources_1_1resource}{resources\+::resource}}$<$ R $>$ $>$}]{res }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Tryies to pop the resource from the specified subject. 
+\begin{DoxyParams}{Parameters}
+{\em sub} & the subject \\
+\hline
+{\em res} & the resource \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily std\+::unique\+\_\+ptr\texorpdfstring{$<$}{<}\mbox{\hyperlink{classlibs_1_1resources_1_1resource}{resources\+::resource}}\texorpdfstring{$<$}{<}R\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}} returns the specified resourse if it exists, otherwise nullptr 
+\end{DoxyReturn}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em R} & is the type of the raw resource \\
+\hline
+\end{DoxyTemplParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{acl_8hpp}{acl.\+hpp}}\end{DoxyCompactItemize}

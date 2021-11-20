@@ -1,0 +1,153 @@
+\hypertarget{classlibs_1_1resources_1_1resource}{}\doxysection{libs\+::resources\+::resource\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\label{classlibs_1_1resources_1_1resource}\index{libs::resources::resource$<$ T $>$@{libs::resources::resource$<$ T $>$}}
+
+
+Defines the resource.  
+
+
+
+
+{\ttfamily \#include $<$resource.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classlibs_1_1resources_1_1resource_ac26d7feefe199dc1c7bdf4c393a81b83}{resource}} ()
+\item 
+\mbox{\hyperlink{classlibs_1_1resources_1_1resource_a809b057b4ceba812eea476430a740769}{resource}} (const \mbox{\hyperlink{classlibs_1_1resources_1_1resource}{resource}}$<$ T $>$ \&)=delete
+\item 
+\mbox{\hyperlink{classlibs_1_1resources_1_1resource}{resource}} \& \mbox{\hyperlink{classlibs_1_1resources_1_1resource_aa787327b8fa4e4a50fb69311c1d67e3f}{operator=}} (const \mbox{\hyperlink{classlibs_1_1resources_1_1resource}{resource}}$<$ T $>$ \&)=delete
+\item 
+\mbox{\hyperlink{classlibs_1_1resources_1_1resource_a1c4d8270852682b53197c75bc0ac5372}{resource}} (\mbox{\hyperlink{classlibs_1_1resources_1_1resource}{resource}}$<$ T $>$ \&\&res)
+\item 
+\mbox{\hyperlink{classlibs_1_1resources_1_1resource}{resource}} \& \mbox{\hyperlink{classlibs_1_1resources_1_1resource_a06839ef052b024800d8780f9eeddc18c}{operator=}} (\mbox{\hyperlink{classlibs_1_1resources_1_1resource}{resource}}$<$ T $>$ \&\&res)
+\item 
+\mbox{\hyperlink{classlibs_1_1resources_1_1resource_ad25124a4731da64b251db74253f77055}{resource}} (T \&res)
+\item 
+\mbox{\hyperlink{classlibs_1_1resources_1_1resource_ae3100f73a29a21709eaba9a0fc01d7b2}{resource}} (T \&\&res)
+\item 
+std\+::unique\+\_\+ptr$<$ T $>$ \& \mbox{\hyperlink{classlibs_1_1resources_1_1resource_a412886bec6bc572e0aca7016197a7efd}{get\+\_\+resource}} ()
+\item 
+size\+\_\+t \mbox{\hyperlink{classlibs_1_1resources_1_1resource_a1c1c0f4c2f79f96feab6c79727d09e1c}{get\+\_\+uuid}} ()
+\item 
+void \mbox{\hyperlink{classlibs_1_1resources_1_1resource_a9459e7f69d8647303b66199b80115ec2}{set\+\_\+uuid}} (size\+\_\+t rand\+\_\+id)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class libs\+::resources\+::resource$<$ T $>$}
+Defines the resource. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & the type of raw data stored in resource \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classlibs_1_1resources_1_1resource_ac26d7feefe199dc1c7bdf4c393a81b83}\label{classlibs_1_1resources_1_1resource_ac26d7feefe199dc1c7bdf4c393a81b83}} 
+\index{libs::resources::resource$<$ T $>$@{libs::resources::resource$<$ T $>$}!resource@{resource}}
+\index{resource@{resource}!libs::resources::resource$<$ T $>$@{libs::resources::resource$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{resource()}{resource()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classlibs_1_1resources_1_1resource}{libs\+::resources\+::resource}}$<$ T $>$\+::\mbox{\hyperlink{classlibs_1_1resources_1_1resource}{resource}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+The default constructor \mbox{\Hypertarget{classlibs_1_1resources_1_1resource_a809b057b4ceba812eea476430a740769}\label{classlibs_1_1resources_1_1resource_a809b057b4ceba812eea476430a740769}} 
+\index{libs::resources::resource$<$ T $>$@{libs::resources::resource$<$ T $>$}!resource@{resource}}
+\index{resource@{resource}!libs::resources::resource$<$ T $>$@{libs::resources::resource$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{resource()}{resource()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classlibs_1_1resources_1_1resource}{libs\+::resources\+::resource}}$<$ T $>$\+::\mbox{\hyperlink{classlibs_1_1resources_1_1resource}{resource}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classlibs_1_1resources_1_1resource}{resource}}$<$ T $>$ \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+The copy constructor deleted \mbox{\Hypertarget{classlibs_1_1resources_1_1resource_a1c4d8270852682b53197c75bc0ac5372}\label{classlibs_1_1resources_1_1resource_a1c4d8270852682b53197c75bc0ac5372}} 
+\index{libs::resources::resource$<$ T $>$@{libs::resources::resource$<$ T $>$}!resource@{resource}}
+\index{resource@{resource}!libs::resources::resource$<$ T $>$@{libs::resources::resource$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{resource()}{resource()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classlibs_1_1resources_1_1resource}{libs\+::resources\+::resource}}$<$ T $>$\+::\mbox{\hyperlink{classlibs_1_1resources_1_1resource}{resource}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classlibs_1_1resources_1_1resource}{resource}}$<$ T $>$ \&\&}]{res }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+The move constructor 
+\begin{DoxyParams}{Parameters}
+{\em res} & the resource object that should be moved. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classlibs_1_1resources_1_1resource_ad25124a4731da64b251db74253f77055}\label{classlibs_1_1resources_1_1resource_ad25124a4731da64b251db74253f77055}} 
+\index{libs::resources::resource$<$ T $>$@{libs::resources::resource$<$ T $>$}!resource@{resource}}
+\index{resource@{resource}!libs::resources::resource$<$ T $>$@{libs::resources::resource$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{resource()}{resource()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classlibs_1_1resources_1_1resource}{libs\+::resources\+::resource}}$<$ T $>$\+::\mbox{\hyperlink{classlibs_1_1resources_1_1resource}{resource}} (\begin{DoxyParamCaption}\item[{T \&}]{res }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+The constructor with argument 
+\begin{DoxyParams}{Parameters}
+{\em res} & a reference to the resource object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classlibs_1_1resources_1_1resource_ae3100f73a29a21709eaba9a0fc01d7b2}\label{classlibs_1_1resources_1_1resource_ae3100f73a29a21709eaba9a0fc01d7b2}} 
+\index{libs::resources::resource$<$ T $>$@{libs::resources::resource$<$ T $>$}!resource@{resource}}
+\index{resource@{resource}!libs::resources::resource$<$ T $>$@{libs::resources::resource$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{resource()}{resource()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classlibs_1_1resources_1_1resource}{libs\+::resources\+::resource}}$<$ T $>$\+::\mbox{\hyperlink{classlibs_1_1resources_1_1resource}{resource}} (\begin{DoxyParamCaption}\item[{T \&\&}]{res }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+The constructor with argument 
+\begin{DoxyParams}{Parameters}
+{\em res} & a rvalue-\/reference to the resource object \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classlibs_1_1resources_1_1resource_a412886bec6bc572e0aca7016197a7efd}\label{classlibs_1_1resources_1_1resource_a412886bec6bc572e0aca7016197a7efd}} 
+\index{libs::resources::resource$<$ T $>$@{libs::resources::resource$<$ T $>$}!get\_resource@{get\_resource}}
+\index{get\_resource@{get\_resource}!libs::resources::resource$<$ T $>$@{libs::resources::resource$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{get\_resource()}{get\_resource()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::unique\+\_\+ptr$<$ T $>$ \& \mbox{\hyperlink{classlibs_1_1resources_1_1resource}{libs\+::resources\+::resource}}$<$ T $>$\+::get\+\_\+resource (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classlibs_1_1resources_1_1resource_a1c1c0f4c2f79f96feab6c79727d09e1c}\label{classlibs_1_1resources_1_1resource_a1c1c0f4c2f79f96feab6c79727d09e1c}} 
+\index{libs::resources::resource$<$ T $>$@{libs::resources::resource$<$ T $>$}!get\_uuid@{get\_uuid}}
+\index{get\_uuid@{get\_uuid}!libs::resources::resource$<$ T $>$@{libs::resources::resource$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{get\_uuid()}{get\_uuid()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+size\+\_\+t \mbox{\hyperlink{classlibs_1_1resources_1_1resource}{libs\+::resources\+::resource}}$<$ T $>$\+::get\+\_\+uuid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Retrives the uuid of the specified resource \begin{DoxyReturn}{Returns}
+{\ttfamily size\+\_\+t} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classlibs_1_1resources_1_1resource_aa787327b8fa4e4a50fb69311c1d67e3f}\label{classlibs_1_1resources_1_1resource_aa787327b8fa4e4a50fb69311c1d67e3f}} 
+\index{libs::resources::resource$<$ T $>$@{libs::resources::resource$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!libs::resources::resource$<$ T $>$@{libs::resources::resource$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classlibs_1_1resources_1_1resource}{resource}} \& \mbox{\hyperlink{classlibs_1_1resources_1_1resource}{libs\+::resources\+::resource}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classlibs_1_1resources_1_1resource}{resource}}$<$ T $>$ \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+The assignement operator deleted \mbox{\Hypertarget{classlibs_1_1resources_1_1resource_a06839ef052b024800d8780f9eeddc18c}\label{classlibs_1_1resources_1_1resource_a06839ef052b024800d8780f9eeddc18c}} 
+\index{libs::resources::resource$<$ T $>$@{libs::resources::resource$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!libs::resources::resource$<$ T $>$@{libs::resources::resource$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classlibs_1_1resources_1_1resource}{resource}} \& \mbox{\hyperlink{classlibs_1_1resources_1_1resource}{libs\+::resources\+::resource}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classlibs_1_1resources_1_1resource}{resource}}$<$ T $>$ \&\&}]{res }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+The move assignement operator 
+\begin{DoxyParams}{Parameters}
+{\em res} & the resource object that should be moved. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classlibs_1_1resources_1_1resource_a9459e7f69d8647303b66199b80115ec2}\label{classlibs_1_1resources_1_1resource_a9459e7f69d8647303b66199b80115ec2}} 
+\index{libs::resources::resource$<$ T $>$@{libs::resources::resource$<$ T $>$}!set\_uuid@{set\_uuid}}
+\index{set\_uuid@{set\_uuid}!libs::resources::resource$<$ T $>$@{libs::resources::resource$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{set\_uuid()}{set\_uuid()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classlibs_1_1resources_1_1resource}{libs\+::resources\+::resource}}$<$ T $>$\+::set\+\_\+uuid (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{rand\+\_\+id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Sets the uuid of the specified resource \begin{DoxyReturn}{Returns}
+{\ttfamily void} 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{resource_8hpp}{resource.\+hpp}}\end{DoxyCompactItemize}

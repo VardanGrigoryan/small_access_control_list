@@ -1,0 +1,154 @@
+\hypertarget{acl_8hpp_source}{}\doxysection{acl.\+hpp}
+\label{acl_8hpp_source}\index{src/acl.hpp@{src/acl.hpp}}
+\mbox{\hyperlink{acl_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef \_\_ACL\_HPP\_\_}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define \_\_ACL\_HPP\_\_}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <unordered\_map>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{access__level_8hpp}{access\_level.hpp}}"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{exception_8hpp}{exception.hpp}}"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{resource_8hpp}{resource.hpp}}"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{subject_8hpp}{subject.hpp}}"{}}}
+\DoxyCodeLine{12  }
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacelibs}{libs}} \{}
+\DoxyCodeLine{16     \textcolor{keyword}{namespace }\mbox{\hyperlink{classlibs_1_1acl_1_1acl}{acl}} \{}
+\DoxyCodeLine{17 \textcolor{keyword}{template} <\textcolor{keyword}{typename} U> \textcolor{keyword}{struct }\mbox{\hyperlink{structlibs_1_1acl_1_1hasher}{hasher}};}
+\DoxyCodeLine{23 \textcolor{keyword}{template} <\textcolor{keyword}{typename} S, \textcolor{keyword}{typename} R>}
+\DoxyCodeLine{24 \textcolor{keyword}{class }\mbox{\hyperlink{classlibs_1_1acl_1_1acl}{acl}} \{}
+\DoxyCodeLine{25     \textcolor{keyword}{struct }hasher\_sub \{}
+\DoxyCodeLine{26         std::size\_t operator() (\mbox{\hyperlink{classlibs_1_1subjects_1_1subject}{subjects::subject<S>}}\& obj)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{27             \textcolor{keywordflow}{return} std::hash<S>()(obj.\mbox{\hyperlink{classlibs_1_1subjects_1_1subject_a847967ad98805e6594af84007413f153}{get\_id}}());}
+\DoxyCodeLine{28         \}}
+\DoxyCodeLine{29     \};}
+\DoxyCodeLine{30     \textcolor{keyword}{struct }hasher\_res \{}
+\DoxyCodeLine{31         std::size\_t operator() (\textcolor{keywordtype}{size\_t} key)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{32             \textcolor{keywordflow}{return} std::hash<size\_t>()(key);}
+\DoxyCodeLine{33         \}}
+\DoxyCodeLine{34     \};}
+\DoxyCodeLine{35     std::unordered\_map<subjects::subject<S>\&\&, std::unordered\_map<size\_t, }
+\DoxyCodeLine{36                                                     std::pair<std::unique\_ptr<resources::resource<R>>, \mbox{\hyperlink{classlibs_1_1enums_1_1access__level}{enums::access\_level}}>, }
+\DoxyCodeLine{37                                 hasher\_res>, }
+\DoxyCodeLine{38                      hasher\_sub> m\_map;}
+\DoxyCodeLine{39     \textcolor{keywordtype}{size\_t} m\_uuid\{1\};}
+\DoxyCodeLine{40     \textcolor{keyword}{public}: }
+\DoxyCodeLine{44         \mbox{\hyperlink{classlibs_1_1acl_1_1acl_ab4bda13c158b06b8e95fb01dd58a7b4f}{acl}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{52         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classlibs_1_1acl_1_1acl_a603a73dea88918b2167d5fe374687824}{add}}(\mbox{\hyperlink{classlibs_1_1subjects_1_1subject}{subjects::subject<S>}}\& sub, std::unique\_ptr<\mbox{\hyperlink{classlibs_1_1resources_1_1resource}{resources::resource<R>}}> res, }
+\DoxyCodeLine{53                 \textcolor{keyword}{const} std::string\& access = std::string(\textcolor{stringliteral}{"{}forbiden"{}})) \{}
+\DoxyCodeLine{54             res.get()-\/>set\_uuid(m\_uuid);}
+\DoxyCodeLine{55             std::pair<size\_t, std::pair<std::unique\_ptr<resources::resource<R>>, }
+\DoxyCodeLine{56                 \mbox{\hyperlink{classlibs_1_1enums_1_1access__level}{enums::access\_level}}>> pair = std::make\_pair(m\_uuid, }
+\DoxyCodeLine{57                         std::make\_pair(std::move(res), }
+\DoxyCodeLine{58                             \mbox{\hyperlink{classlibs_1_1enums_1_1access__level}{enums::access\_level}}(access)));}
+\DoxyCodeLine{59             m\_map[std::move(sub)].insert(std::move(pair));}
+\DoxyCodeLine{60             \textcolor{keywordtype}{size\_t} uuid = m\_uuid;}
+\DoxyCodeLine{61             ++m\_uuid;}
+\DoxyCodeLine{62             \textcolor{keywordflow}{return} uuid;}
+\DoxyCodeLine{63         \}}
+\DoxyCodeLine{70         \textcolor{keywordtype}{void} \mbox{\hyperlink{classlibs_1_1acl_1_1acl_afe069f936744de4bf7f0b24e97afa564}{allow\_access}}(\mbox{\hyperlink{classlibs_1_1subjects_1_1subject}{subjects::subject<S>}}\& sub, \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} uuid) \{}
+\DoxyCodeLine{71             \textcolor{comment}{// Changes th access level in O(1) -\/ averrage.}}
+\DoxyCodeLine{72             \textcolor{keyword}{auto} it = m\_map.find(sub);}
+\DoxyCodeLine{73             \textcolor{keywordflow}{if}(it != m\_map.end()) \{}
+\DoxyCodeLine{74                 \textcolor{keyword}{auto} itt = it-\/>second.find(uuid);}
+\DoxyCodeLine{75                 \textcolor{keywordflow}{if}(itt != it-\/>second.end()) \{}
+\DoxyCodeLine{76                     itt-\/>second.second = \mbox{\hyperlink{classlibs_1_1enums_1_1access__level}{enums::access\_level}}(\textcolor{stringliteral}{"{}allowed"{}});}
+\DoxyCodeLine{77                 \}}
+\DoxyCodeLine{78             \}}
+\DoxyCodeLine{79         \}}
+\DoxyCodeLine{86         \textcolor{keywordtype}{void} \mbox{\hyperlink{classlibs_1_1acl_1_1acl_a0457c801118c56053bd3f6230eaaa042}{forbid\_access}}(\mbox{\hyperlink{classlibs_1_1subjects_1_1subject}{subjects::subject<S>}}\& sub, \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} uuid) \{}
+\DoxyCodeLine{87             \textcolor{comment}{// Changes th access level in O(1) -\/ averrage.}}
+\DoxyCodeLine{88             \textcolor{keyword}{auto} it = m\_map.find(sub);}
+\DoxyCodeLine{89             \textcolor{keywordflow}{if}(it != m\_map.end()) \{}
+\DoxyCodeLine{90                 \textcolor{keyword}{auto} itt = it-\/>second.find(uuid);}
+\DoxyCodeLine{91                 \textcolor{keywordflow}{if}(itt != it-\/>second.end()) \{}
+\DoxyCodeLine{92                     itt-\/>second.second = \mbox{\hyperlink{classlibs_1_1enums_1_1access__level}{enums::access\_level}}(\textcolor{stringliteral}{"{}forbiden"{}});}
+\DoxyCodeLine{93                 \}}
+\DoxyCodeLine{94             \}}
+\DoxyCodeLine{95         \}}
+\DoxyCodeLine{102         \textcolor{keywordtype}{bool} \mbox{\hyperlink{classlibs_1_1acl_1_1acl_ad21667a276f12ecddc3dfbd0ebf49308}{is\_allowed}}(\mbox{\hyperlink{classlibs_1_1subjects_1_1subject}{subjects::subject<S>}}\& sub, std::unique\_ptr<\mbox{\hyperlink{classlibs_1_1resources_1_1resource}{resources::resource<R>}}> res) \{}
+\DoxyCodeLine{103             \textcolor{comment}{// Chacks the access level in O(1) -\/ averrage.}}
+\DoxyCodeLine{104             \textcolor{keyword}{auto} it = m\_map.find(sub);}
+\DoxyCodeLine{105             \textcolor{keywordtype}{size\_t} uuid = res.get()-\/>get\_uuid();}
+\DoxyCodeLine{106             \textcolor{keywordflow}{if}(it == m\_map.end()) \{}
+\DoxyCodeLine{107                 \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{108             \}}
+\DoxyCodeLine{109             \textcolor{keyword}{auto} itt = it-\/>second.find(uuid);}
+\DoxyCodeLine{110             \textcolor{keywordflow}{if}(itt == it-\/>second.end()) \{}
+\DoxyCodeLine{111                 \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{112             \}}
+\DoxyCodeLine{113             \textcolor{keywordflow}{return} itt-\/>second.second.get\_access\_level() == \textcolor{stringliteral}{"{}allowed"{}} ? true : \textcolor{keyword}{false};}
+\DoxyCodeLine{114         \}}
+\DoxyCodeLine{120         \textcolor{keywordtype}{void} \mbox{\hyperlink{classlibs_1_1acl_1_1acl_a311d3f205dfe911b1fb4c71f9ba28d70}{remove}}(\mbox{\hyperlink{classlibs_1_1subjects_1_1subject}{subjects::subject<S>}}\& sub) \{}
+\DoxyCodeLine{121             \textcolor{comment}{// removes the subject in O(1) -\/ averrage.}}
+\DoxyCodeLine{122             \textcolor{keyword}{auto} it = m\_map.find(sub);}
+\DoxyCodeLine{123             \textcolor{keywordflow}{if}(it != m\_map.end()) \{}
+\DoxyCodeLine{124                 m\_map.erase(it);}
+\DoxyCodeLine{125             \}}
+\DoxyCodeLine{126         \}}
+\DoxyCodeLine{133         \textcolor{keywordtype}{void} \mbox{\hyperlink{classlibs_1_1acl_1_1acl_a78d56a868719a63fb3a4bfc124d07cc3}{remove}}(\mbox{\hyperlink{classlibs_1_1subjects_1_1subject}{subjects::subject<S>}}\& sub, \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} uuid) \{}
+\DoxyCodeLine{134             \textcolor{comment}{// removes the resource from the subject in O(1) -\/ averrage.}}
+\DoxyCodeLine{135             \textcolor{keyword}{auto} it = m\_map.find(sub);}
+\DoxyCodeLine{136             \textcolor{keywordflow}{if}(it != m\_map.end()) \{}
+\DoxyCodeLine{137                 \textcolor{keyword}{auto} itt = it-\/>second.find(uuid);}
+\DoxyCodeLine{138                 \textcolor{keywordflow}{if}(itt != it-\/>second.end()) \{}
+\DoxyCodeLine{139                     it-\/>second.erase(itt);}
+\DoxyCodeLine{140                 \}}
+\DoxyCodeLine{141             \}}
+\DoxyCodeLine{142         \}}
+\DoxyCodeLine{148         \textcolor{keywordtype}{bool} \mbox{\hyperlink{classlibs_1_1acl_1_1acl_a41cdad769203cd4133f90e6087056ab1}{has\_subject}}(\mbox{\hyperlink{classlibs_1_1subjects_1_1subject}{subjects::subject<S>}}\& sub) \{}
+\DoxyCodeLine{149             \textcolor{comment}{// Checks whether the subject exists in O(1) -\/ averrage.}}
+\DoxyCodeLine{150             \textcolor{keywordflow}{return} m\_map.find(sub) != m\_map.end();}
+\DoxyCodeLine{151         \}}
+\DoxyCodeLine{158         \textcolor{keywordtype}{bool} \mbox{\hyperlink{classlibs_1_1acl_1_1acl_abdcdee2f1ba7ec4441d7fb1cfc0c86c0}{has\_resource}}(\mbox{\hyperlink{classlibs_1_1subjects_1_1subject}{subjects::subject<S>}}\& sub, \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} uuid) \{}
+\DoxyCodeLine{159             \textcolor{comment}{// Checks whether the resource exists within the specified subject in O(1) -\/ averrage.}}
+\DoxyCodeLine{160             \textcolor{keyword}{auto} it = m\_map.find(sub);}
+\DoxyCodeLine{161             \textcolor{keywordflow}{if}(it != m\_map.end()) \{}
+\DoxyCodeLine{162                 \textcolor{keyword}{auto} itt = it-\/>second.find(uuid);}
+\DoxyCodeLine{163                 \textcolor{keywordflow}{if}(itt != it-\/>second.end()) \{}
+\DoxyCodeLine{164                     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{165                 \}}
+\DoxyCodeLine{166             \}}
+\DoxyCodeLine{167             \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{168         \}}
+\DoxyCodeLine{176         std::unique\_ptr<resources::resource<R>> \mbox{\hyperlink{classlibs_1_1acl_1_1acl_ab07d9833e26fd104608cd1898a8581a5}{try\_pop}}(\mbox{\hyperlink{classlibs_1_1subjects_1_1subject}{subjects::subject<S>}}\& sub, std::unique\_ptr<\mbox{\hyperlink{classlibs_1_1resources_1_1resource}{resources::resource<R>}}> res) \{}
+\DoxyCodeLine{177             \textcolor{comment}{// Tryies to pop out the specified resource form the specified subject in O(1) -\/ averrage.}}
+\DoxyCodeLine{178             \textcolor{keyword}{auto} it = m\_map.find(sub);}
+\DoxyCodeLine{179             \textcolor{keywordtype}{size\_t} uuid = res.get()-\/>get\_uuid();}
+\DoxyCodeLine{180             \textcolor{keywordflow}{if}(it != m\_map.end()) \{}
+\DoxyCodeLine{181                 \textcolor{keyword}{auto} itt = it-\/>second.find(uuid);}
+\DoxyCodeLine{182                 \textcolor{keywordflow}{if}(itt != it-\/>second.end()) \{}
+\DoxyCodeLine{183                     std::unique\_ptr<resources::resource<R>> uptr = std::move(itt-\/>second.first);}
+\DoxyCodeLine{184                     \mbox{\hyperlink{classlibs_1_1subjects_1_1subject}{subjects::subject<S>}} key = itt-\/>first;}
+\DoxyCodeLine{185                     m\_map.erase(key);}
+\DoxyCodeLine{186                     \textcolor{keywordflow}{return} std::move(uptr);}
+\DoxyCodeLine{187                 \}}
+\DoxyCodeLine{188             \}}
+\DoxyCodeLine{189             \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{190         \}}
+\DoxyCodeLine{198         std::unique\_ptr<resources::resource<R>> \mbox{\hyperlink{classlibs_1_1acl_1_1acl_a35647a2cfc9476759e5e4c6318f50c1f}{try\_pop}}(\mbox{\hyperlink{classlibs_1_1subjects_1_1subject}{subjects::subject<S>}}\& sub, \textcolor{keywordtype}{size\_t} uuid) \{}
+\DoxyCodeLine{199             \textcolor{comment}{// Tryies to pop out the specified resource by its uuid form the specified subject in O(1) -\/ averrage.}}
+\DoxyCodeLine{200             \textcolor{keyword}{auto} it = m\_map.find(sub);}
+\DoxyCodeLine{201             \textcolor{keywordflow}{if}(it != m\_map.end()) \{}
+\DoxyCodeLine{202                 \textcolor{keyword}{auto} itt = it-\/>second.find(uuid);}
+\DoxyCodeLine{203                 \textcolor{keywordflow}{if}(itt != it-\/>second.end()) \{}
+\DoxyCodeLine{204                     std::unique\_ptr<resources::resource<R>> uptr = std::move(itt-\/>second.first);}
+\DoxyCodeLine{205                     \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} key = itt-\/>first;}
+\DoxyCodeLine{206                     \textcolor{keywordflow}{return} std::move(uptr);}
+\DoxyCodeLine{207                 \}}
+\DoxyCodeLine{208             \}}
+\DoxyCodeLine{209             \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{210         \}}
+\DoxyCodeLine{215         \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classlibs_1_1acl_1_1acl_a2a3aad70eec4874999e2e9e890c7848e}{size}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{216             \textcolor{keywordflow}{return} m\_map.size();}
+\DoxyCodeLine{217         \}}
+\DoxyCodeLine{218 \};}
+\DoxyCodeLine{219 \}}
+\DoxyCodeLine{220 \}}
+\DoxyCodeLine{221 }
+\DoxyCodeLine{222 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// \_\_ACL\_HPP\_\_}}
+
+\end{DoxyCode}

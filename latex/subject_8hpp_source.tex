@@ -1,0 +1,66 @@
+\hypertarget{subject_8hpp_source}{}\doxysection{subject.\+hpp}
+\label{subject_8hpp_source}\index{src/subject.hpp@{src/subject.hpp}}
+\mbox{\hyperlink{subject_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef \_\_SUBJECT\_HPP\_\_}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define \_\_SUBJECT\_HPP\_\_}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <typeinfo>}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{exception_8hpp}{exception.hpp}}"{}}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacelibs}{libs}} \{}
+\DoxyCodeLine{12     \textcolor{keyword}{namespace }subjects \{}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T> \textcolor{keyword}{class }\mbox{\hyperlink{classlibs_1_1subjects_1_1subject}{subject}};}
+\DoxyCodeLine{15 \textcolor{keyword}{template} <\textcolor{keyword}{typename} U>}
+\DoxyCodeLine{16 \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacelibs_1_1subjects_aba827a3bd4f1a2e7694cbff4bbe5bb48}{operator==}}(\mbox{\hyperlink{classlibs_1_1subjects_1_1subject}{subject<U>}}\& lhs, \mbox{\hyperlink{classlibs_1_1subjects_1_1subject}{subject<U>}}\& rhs);}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{22 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{23 \textcolor{keyword}{class }\mbox{\hyperlink{classlibs_1_1subjects_1_1subject}{subject}} \{}
+\DoxyCodeLine{24     \textcolor{keyword}{private}:}
+\DoxyCodeLine{25         std::unique\_ptr<T> m\_id;}
+\DoxyCodeLine{26         \textcolor{keyword}{friend} \textcolor{keywordtype}{bool} \textcolor{keyword}{operator}== <T>(\mbox{\hyperlink{classlibs_1_1subjects_1_1subject}{subject<T>}}\&, \mbox{\hyperlink{classlibs_1_1subjects_1_1subject}{subject<T>}}\&);}
+\DoxyCodeLine{27         \textcolor{keywordtype}{bool} is\_equal(\mbox{\hyperlink{classlibs_1_1subjects_1_1subject}{subject<T>}}\& rhs) \{}
+\DoxyCodeLine{28             \textcolor{keywordflow}{return} \mbox{\hyperlink{classlibs_1_1subjects_1_1subject_a8b3292b8cdcb28c9714316c2161b762a}{operator==}}(rhs);}
+\DoxyCodeLine{29         \}}
+\DoxyCodeLine{30     \textcolor{keyword}{public}: }
+\DoxyCodeLine{34         \mbox{\hyperlink{classlibs_1_1subjects_1_1subject_af23e7c154808b32a1babc0a85bb6b9e4}{subject}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{38         \mbox{\hyperlink{classlibs_1_1subjects_1_1subject_ad9a5b4c044af6df91821f3ba2c8e7f28}{subject}}(\textcolor{keyword}{const} \mbox{\hyperlink{classlibs_1_1subjects_1_1subject}{subject}}\&) = \textcolor{keyword}{delete};}
+\DoxyCodeLine{42         \mbox{\hyperlink{classlibs_1_1subjects_1_1subject}{subject}}\& \mbox{\hyperlink{classlibs_1_1subjects_1_1subject_a212c1a1d32b16c7eb5cfc2a5db26b20f}{operator=}}(\textcolor{keyword}{const} \mbox{\hyperlink{classlibs_1_1subjects_1_1subject}{subject}}\&) = \textcolor{keyword}{delete};}
+\DoxyCodeLine{47         \mbox{\hyperlink{classlibs_1_1subjects_1_1subject_a958d846082cf6026003c85a36f029ad1}{subject}}(\mbox{\hyperlink{classlibs_1_1subjects_1_1subject}{subject}}\&\& sbj): m\_id(std::move(sbj.m\_id)) \{\}}
+\DoxyCodeLine{52         \mbox{\hyperlink{classlibs_1_1subjects_1_1subject}{subject}}\& \mbox{\hyperlink{classlibs_1_1subjects_1_1subject_a06fb45d87d41f810ae6f645081715657}{operator=}}(\mbox{\hyperlink{classlibs_1_1subjects_1_1subject}{subject}}\&\& sbj) \{ }
+\DoxyCodeLine{53             m\_id = std::move(sbj.m\_id); }
+\DoxyCodeLine{54         \}}
+\DoxyCodeLine{59         \mbox{\hyperlink{classlibs_1_1subjects_1_1subject_a245e93a2ef535ceb69a4ac35128a3a41}{subject}}(\textcolor{keyword}{const} T\& \textcolor{keywordtype}{id}): }
+\DoxyCodeLine{60             m\_id(std::move(std::make\_unique<T>(id))) \{}
+\DoxyCodeLine{61         \}}
+\DoxyCodeLine{67         \textcolor{keywordtype}{void} \mbox{\hyperlink{classlibs_1_1subjects_1_1subject_a7c1c24f363870f5cfd1561cb9307575b}{set\_id}}(\textcolor{keyword}{const} T\& \textcolor{keywordtype}{id}) \{}
+\DoxyCodeLine{68             m\_id = std::move(std::make\_unique<T>(\textcolor{keywordtype}{id}));}
+\DoxyCodeLine{69         \}}
+\DoxyCodeLine{74         T \mbox{\hyperlink{classlibs_1_1subjects_1_1subject_a847967ad98805e6594af84007413f153}{get\_id}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{75             \textcolor{keywordflow}{if}(m\_id) \{}
+\DoxyCodeLine{76                 \textcolor{keywordflow}{return} *m\_id.get();}
+\DoxyCodeLine{77             \}}
+\DoxyCodeLine{78             \textcolor{keywordflow}{throw} \mbox{\hyperlink{classlibs_1_1exception_1_1custom__exception}{libs::exception::custom\_exception}}(\textcolor{stringliteral}{"{}Error: Invalid subject"{}});}
+\DoxyCodeLine{79         \}}
+\DoxyCodeLine{84         \textcolor{keywordtype}{bool} \mbox{\hyperlink{classlibs_1_1subjects_1_1subject_a5c59e28b2f00314d8436399ac50673ec}{operator<}}(\textcolor{keyword}{const} \mbox{\hyperlink{classlibs_1_1subjects_1_1subject}{subject<T>}}\& rhs) \{}
+\DoxyCodeLine{85             \textcolor{keywordflow}{return} *m\_id.get() < *(rhs.m\_id.get());}
+\DoxyCodeLine{86         \}}
+\DoxyCodeLine{91         \textcolor{keywordtype}{bool} \mbox{\hyperlink{classlibs_1_1subjects_1_1subject_a175c65acca5d3b62daea4b4a536cae1c}{operator==}}(\textcolor{keyword}{const} \mbox{\hyperlink{classlibs_1_1subjects_1_1subject}{subject<T>}}\& rhs) \{}
+\DoxyCodeLine{92             \textcolor{keywordflow}{return} *m\_id.get() == *(rhs.m\_id.get());}
+\DoxyCodeLine{93         \}}
+\DoxyCodeLine{94 \};}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{100 \textcolor{keyword}{template} <\textcolor{keyword}{typename} U>}
+\DoxyCodeLine{101 \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacelibs_1_1subjects_aba827a3bd4f1a2e7694cbff4bbe5bb48}{operator==}}(\mbox{\hyperlink{classlibs_1_1subjects_1_1subject}{subject<U>}}\& lhs, \mbox{\hyperlink{classlibs_1_1subjects_1_1subject}{subject<U>}}\& rhs) \{}
+\DoxyCodeLine{102     \textcolor{keywordflow}{return} lhs.is\_equal(rhs);}
+\DoxyCodeLine{103 \}}
+\DoxyCodeLine{104 \}}
+\DoxyCodeLine{105 \}}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{107 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// \_\_SUBJECT\_HPP\_\_}}
+
+\end{DoxyCode}

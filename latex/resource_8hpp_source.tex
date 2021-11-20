@@ -1,0 +1,51 @@
+\hypertarget{resource_8hpp_source}{}\doxysection{resource.\+hpp}
+\label{resource_8hpp_source}\index{src/resource.hpp@{src/resource.hpp}}
+\mbox{\hyperlink{resource_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef \_\_RESOURCE\_HPP\_\_}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define \_\_RESOURCE\_HPP\_\_}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <type\_traits>}}
+\DoxyCodeLine{7  }
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacelibs}{libs}} \{}
+\DoxyCodeLine{11     \textcolor{keyword}{namespace }resources\{}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{17 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{18 \textcolor{keyword}{class }\mbox{\hyperlink{classlibs_1_1resources_1_1resource}{resource}} \{}
+\DoxyCodeLine{19     \textcolor{keyword}{private}:}
+\DoxyCodeLine{20         \textcolor{keywordtype}{size\_t} m\_uuid\{\};}
+\DoxyCodeLine{21         std::unique\_ptr<T> m\_resource;}
+\DoxyCodeLine{22     \textcolor{keyword}{public}: }
+\DoxyCodeLine{26         \mbox{\hyperlink{classlibs_1_1resources_1_1resource_ac26d7feefe199dc1c7bdf4c393a81b83}{resource}}() \{}
+\DoxyCodeLine{27             \textcolor{keyword}{static\_assert}(std::is\_default\_constructible\_v<T>, \textcolor{stringliteral}{"{}T must be default construcitble"{}});}
+\DoxyCodeLine{28             m\_resource = std::move(std::make\_unique<T>());}
+\DoxyCodeLine{29         \}}
+\DoxyCodeLine{33         \mbox{\hyperlink{classlibs_1_1resources_1_1resource_a809b057b4ceba812eea476430a740769}{resource}}(\textcolor{keyword}{const} \mbox{\hyperlink{classlibs_1_1resources_1_1resource}{resource<T>}}\&) = \textcolor{keyword}{delete};}
+\DoxyCodeLine{37         \mbox{\hyperlink{classlibs_1_1resources_1_1resource}{resource}}\& \mbox{\hyperlink{classlibs_1_1resources_1_1resource_aa787327b8fa4e4a50fb69311c1d67e3f}{operator=}}(\textcolor{keyword}{const} \mbox{\hyperlink{classlibs_1_1resources_1_1resource}{resource<T>}}\&) = \textcolor{keyword}{delete};}
+\DoxyCodeLine{42         \mbox{\hyperlink{classlibs_1_1resources_1_1resource_a1c4d8270852682b53197c75bc0ac5372}{resource}}(\mbox{\hyperlink{classlibs_1_1resources_1_1resource}{resource<T>}}\&\& res): m\_resource(std::move(res.m\_resource)) \{\}}
+\DoxyCodeLine{47         \mbox{\hyperlink{classlibs_1_1resources_1_1resource}{resource}}\& \mbox{\hyperlink{classlibs_1_1resources_1_1resource_a06839ef052b024800d8780f9eeddc18c}{operator=}}(\mbox{\hyperlink{classlibs_1_1resources_1_1resource}{resource<T>}}\&\& res) \{ }
+\DoxyCodeLine{48             m\_resource = std::move(res.m\_resource);}
+\DoxyCodeLine{49         \}}
+\DoxyCodeLine{54         \mbox{\hyperlink{classlibs_1_1resources_1_1resource_ad25124a4731da64b251db74253f77055}{resource}}(T\& res): }
+\DoxyCodeLine{55                     m\_resource(std::move(std::make\_unique<T>(std::move(res)))) \{\}}
+\DoxyCodeLine{60         \mbox{\hyperlink{classlibs_1_1resources_1_1resource_ae3100f73a29a21709eaba9a0fc01d7b2}{resource}}(T\&\& res): }
+\DoxyCodeLine{61                     m\_resource(std::move(std::make\_unique<T>(res))) \{\}}
+\DoxyCodeLine{62         std::unique\_ptr<T>\& \mbox{\hyperlink{classlibs_1_1resources_1_1resource_a412886bec6bc572e0aca7016197a7efd}{get\_resource}}() \{}
+\DoxyCodeLine{63             \textcolor{keywordflow}{return} m\_resource;}
+\DoxyCodeLine{64         \}}
+\DoxyCodeLine{69         \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classlibs_1_1resources_1_1resource_a1c1c0f4c2f79f96feab6c79727d09e1c}{get\_uuid}}() \{}
+\DoxyCodeLine{70             \textcolor{keywordflow}{return} m\_uuid;}
+\DoxyCodeLine{71         \}}
+\DoxyCodeLine{76         \textcolor{keywordtype}{void} \mbox{\hyperlink{classlibs_1_1resources_1_1resource_a9459e7f69d8647303b66199b80115ec2}{set\_uuid}}(\textcolor{keywordtype}{size\_t} rand\_id) \{}
+\DoxyCodeLine{77             m\_uuid = rand\_id;}
+\DoxyCodeLine{78         \}}
+\DoxyCodeLine{79 \};}
+\DoxyCodeLine{80 \}}
+\DoxyCodeLine{81 \}}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// \_\_RESOURCE\_HPP\_\_}}
+
+\end{DoxyCode}
