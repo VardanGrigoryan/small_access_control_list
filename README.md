@@ -1,4 +1,4 @@
-# Access List Control
+# Access Control List
 
 ## Introduction
 Access list control is a scalable, offline software solution developed in a library-like, headers-only maner which is capable to hold and manage various types of resources.
