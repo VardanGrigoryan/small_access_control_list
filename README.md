@@ -26,7 +26,7 @@ Text analyzer uses the following stack:
 As a build system CMake has been used and was written so it could be compiled and executed on linux and windows environments.
 
 ## Build
-### Plannd 
+### Planned 
 Providing Dockerfile/Docker image for testing in an isolated environment, currently there is an issue ralted with os image version that's not fixed in this initial version!
 In order to build the project manually, please follow to bellow described steps:
 ```
