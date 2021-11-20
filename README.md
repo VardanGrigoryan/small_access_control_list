@@ -2,7 +2,7 @@
 
 ## Introduction
 Access list control is a scalable, offline software solution developed in a library-like, headers-only maner which is capable to hold and manage various types of resources.
-It is implemented by following the unique ownership principle, which means consumed by accessed. So if there is an attepmt to get/pop a resource then it will be invalidated.
+It is implemented by following the unique ownership principle, which means consumed by access. So if there is an attepmt to get/pop a resource then it will be invalidated.
 
 ### High level design components
 The project consists of the following components:
