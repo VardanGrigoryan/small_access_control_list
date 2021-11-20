@@ -24,7 +24,9 @@ class resource {
 		 * The default constructor
 		 */		 
 		resource() {
-			static_assert(std::is_default_constructible_v<T>, "T must be default construcitble");
+			if constexpr(constexpr bool is_dev_constr = std::is_default_constructible<T>::value) {
+				static_assert(is_dev_constr, "T must be default construcitble");
+			}
 			m_resource = std::move(std::make_unique<T>());
 		}
 		/**
